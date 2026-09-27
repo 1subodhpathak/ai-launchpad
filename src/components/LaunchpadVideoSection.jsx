@@ -1,7 +1,7 @@
 import { Pause, Play, Volume2 } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 
-import promoVideo from "../assets/Promo.mp4";
+const promoVideo = "https://d7exlrhix3get.cloudfront.net/launchpad-promo.mp4";
 import SplitGradientHeading from "./SplitGradientHeading";
 
 const highlights = [

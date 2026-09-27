@@ -1,9 +1,7 @@
 import { ArrowRight, Play } from "lucide-react";
 
 import heroBackDark from "../assets/hero/herobackdark.png";
-import heroBackDarkVideo from "../assets/hero/herobackdark.mp4";
 import heroBackLight from "../assets/hero/herobacklight.png";
-import heroBackLightVideo from "../assets/hero/herobacklight.mp4";
 import { useAdminContent } from "../content/AdminContentContext";
 
 export default function Hero({ theme = "dark" }) {
@@ -11,7 +9,6 @@ export default function Hero({ theme = "dark" }) {
   const heroContent = content.hero;
   const isLight = theme === "light";
   const heroBackground = isLight ? heroBackLight : heroBackDark;
-  const heroBackgroundVideo = isLight ? heroBackLightVideo : heroBackDarkVideo;
 
   const openVideo = () => {
     document.getElementById("launchpad-video")?.scrollIntoView({
@@ -28,15 +25,10 @@ export default function Hero({ theme = "dark" }) {
         isLight ? "bg-[#f8fafc]" : "bg-[#030b18]"
       }`}
     >
-      {/* Desktop background */}
-      <video
-        key={heroBackgroundVideo}
-        autoPlay
-        muted
-        loop
-        preload="metadata"
-        playsInline
-        poster={heroBackground}
+      {/* Desktop background image */}
+      <img
+        src={heroBackground}
+        alt=""
         aria-hidden="true"
         className="
           pointer-events-none
@@ -50,9 +42,7 @@ export default function Hero({ theme = "dark" }) {
           object-center
           lg:block
         "
-      >
-        <source src={heroBackgroundVideo} type="video/mp4" />
-      </video>
+      />
 
       {/* Very light readability blend.
           Do not use a strong full-screen overlay because it dulls the artwork. */}
